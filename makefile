@@ -1,4 +1,4 @@
-VERSION := $(shell grep -Eo '(v\d\.\d\.\d)(-dev)?' version.go | head -n1)
+VERSION := $(shell grep -Eo '(v[0-9]+[\.][0-9]+[\.][0-9]+(-[a-zA-Z0-9]*)?)' version.go)
 
 .PHONY: build deps docker
 
