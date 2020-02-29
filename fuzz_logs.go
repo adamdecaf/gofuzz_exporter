@@ -125,22 +125,22 @@ func scrapeAppLogs(app string, lokiConfig LokiConfig) (*gofuzz.Line, error) {
 var (
 	workerCount = kitprom.NewGaugeFrom(stdprom.GaugeOpts{
 		Name: "gofuzz_workers",
-		Help: "",
+		Help: "Count of workers for a go-fuzz process",
 	}, []string{"app"})
 
 	corpusCount = kitprom.NewGaugeFrom(stdprom.GaugeOpts{
 		Name: "gofuzz_corpus",
-		Help: "",
+		Help: "Count of corpus for a go-fuzz process",
 	}, []string{"app"})
 
 	crashersCount = kitprom.NewGaugeFrom(stdprom.GaugeOpts{
 		Name: "gofuzz_crashers",
-		Help: "",
+		Help: "Count of crashers for a go-fuzz process",
 	}, []string{"app"})
 
 	executions = kitprom.NewGaugeFrom(stdprom.GaugeOpts{
 		Name: "gofuzz_executions",
-		Help: "",
+		Help: "Count of executions for a go-fuzz process",
 	}, []string{"app"})
 )
 
