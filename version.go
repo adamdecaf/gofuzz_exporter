@@ -5,4 +5,4 @@
 package main
 
 // Version number
-const Version = "v0.0.0"
+const Version = "v0.0.1"
