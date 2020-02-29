@@ -3,6 +3,7 @@ WORKDIR /go/src/github.com/adamdecaf/gofuzz_exporter
 RUN apk add -U make
 RUN adduser -D -g '' --shell /bin/false golang
 COPY . .
+ENV CGO_ENABLED=0
 ENV GO111MODULE=on
 RUN go mod download
 RUN make build
