@@ -37,6 +37,7 @@ func grabFuzzLogs(ctx context.Context, cfg *Config) {
 	tick := time.NewTicker(cfg.Interval)
 	defer tick.Stop()
 
+	log.Printf("refreshing every %v", cfg.Interval)
 	log.Printf("using %s for Loki address", cfg.Loki.Address)
 
 	for {
