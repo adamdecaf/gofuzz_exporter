@@ -61,7 +61,9 @@ func scrapeAllAppLogs(apps []string, lokiConfig LokiConfig) error {
 		if err != nil {
 			return fmt.Errorf("scrape app=%s error=%v", apps[i], err)
 		}
-		recordFuzzStats(apps[i], line)
+		if line != nil {
+			recordFuzzStats(apps[i], line)
+		}
 	}
 	return nil
 }
