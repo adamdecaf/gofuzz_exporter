@@ -1,4 +1,4 @@
-FROM golang:1.14-alpine as builder
+FROM golang:1.15-alpine as builder
 WORKDIR /go/src/github.com/adamdecaf/gofuzz_exporter
 RUN apk add -U make
 RUN adduser -D -g '' --shell /bin/false golang

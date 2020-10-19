@@ -8,14 +8,13 @@ services:
 matrix:
   include:
     - os: linux
-      go: 1.14.x
+      go: 1.15.x
     - os: osx
-      go: 1.14.x
+      go: 1.15.x
 
 before_install:
   - go get -u github.com/client9/misspell/cmd/misspell
   - go get -u golang.org/x/lint/golint
-  - go get github.com/fzipp/gocyclo
   - go get -u honnef.co/go/tools/cmd/staticcheck
   - go get golang.org/x/tools/cmd/cover
 
@@ -26,7 +25,6 @@ script:
   - test -z $(gofmt -s -l $GOFILES)
   - go test ./... -race -coverprofile=coverage.txt -covermode=atomic
   - misspell -error -locale US $GOFILES
-  - gocyclo -over 20 $GOFILES
   - golint -set_exit_status $GOFILES
   - staticcheck *.go
 
@@ -40,11 +38,11 @@ deploy:
     secure: rFUpT3/PA6438EC5cOp27HNUhX60XM7rWwL+DDqd3YWJfvLiSDHrL7alJWqN011pMNO+X3ruDFxSp+x0/Kcr/rndipJiu7jaQ8H661PtS48uz7SZ7ibboX6kgOv+H/OnhH14ygHAjGC3wZgqBy/jaMg4eohzYOdLTUExin8GUSRnIDCo7C+HUhrazPmiBVXLtT36bmDx3kx7JDFuCoMvfe6I9z0xNISrIy2JQFwWIZBPNtobl78FNoDPmEZvS54tBXStMny5ksmgz2VZhOFH5Nk31UilO2IY5YpdZEX0pC75OiuYYu2Mb60ls+wXkAv0uzVXOYluZmJJSBXFsaVN6xrulmHX1gO+XWo4oBLI3y9y4jC5BmMN+SUZ93Ly4LdKfs7bKTF5RRpveu4/JxdATpblSF8dh7AR+Cx+CF7q6xzXYJhPqLVS9Ubssm6JUqOj77rFYQ8VGf5orEJrOaetylRLqbd5gBCwuN8tdAV7BrqDaEFmHnQWzBQxQ8ZindUesqgRKOcyxdui1Eup+pqR4BLW+2tHKVoXCpJnCqKAs7chSPnvoeaLygOv4cwyLt7jUhjCJBznJGHmXTaQrN5er61IlMu1H2IzqKutZXBzJQdYXX4QR5rMHrLoLOUcNPsAv0/wQ2dJzIk8tw/qCPr6qfgP1CMdvg1m0aWCMTBr4J8=
   file_glob: true
   file:
-    - bin/rdap-exporter-*
+    - bin/gofuxx_exporter-*
   on:
     tags: true
     repo: adamdecaf/gofuzz_exporter
-    go: 1.14.x
+    go: 1.15.x
   skip_cleanup: true
 
 after_deploy:
