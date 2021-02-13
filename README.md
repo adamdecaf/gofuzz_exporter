@@ -30,6 +30,12 @@ $ docker run -it -p 10000:10000 adamdecaf/gofuzz_exporter:v0.1.1 -loki.address h
 2020/02/29 02:04:00 using http://localhost:3100/loki/ for Loki address
 ```
 
+### Graphs
+
+You can use this project to create graphs like the following.
+
+![](./docs/images/fuzz-stats.png)
+
 ## License
 
 Apache License 2.0 See [LICENSE](LICENSE) for details.
